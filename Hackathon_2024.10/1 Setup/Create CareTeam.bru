@@ -1,7 +1,7 @@
 meta {
   name: Create CareTeam
   type: http
-  seq: 11
+  seq: 10
 }
 
 post {
@@ -67,4 +67,8 @@ body:json {
 
 assert {
   res.status: eq 201
+}
+
+script:post-response {
+  bru.sleep(2000)
 }

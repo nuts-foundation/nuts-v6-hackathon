@@ -1,0 +1,15 @@
+meta {
+  name: Nuts Get IAM Org1
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{nuts-public}}/iam/{{Org1DidId}}/did.json
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

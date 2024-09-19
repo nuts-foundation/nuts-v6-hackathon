@@ -1,7 +1,7 @@
 meta {
   name: Create Consent
   type: http
-  seq: 10
+  seq: 9
 }
 
 post {
@@ -64,4 +64,8 @@ body:json {
 
 assert {
   res.status: eq 201
+}
+
+script:post-response {
+  bru.sleep(2000)
 }

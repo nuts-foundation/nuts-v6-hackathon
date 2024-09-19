@@ -37,5 +37,20 @@ body:json {
 
 assert {
   res.status: eq 200
-  res.body.result.allow: isTruthy 
+  res.body.result.allow: isTruthy
+}
+
+script:pre-request {
+  if(bru.getVar("retry") == 0) {
+    bru.setVar("retry", 5)
+  }
+}
+
+script:post-response {
+  const retryCount = bru.getVar("retry")
+  
+  if(!res.body.result.allow && retryCount > 0) {
+    bru.setNextRequest("Check Policy")
+    bru.setVar("retry", retryCount - 1)
+  }
 }

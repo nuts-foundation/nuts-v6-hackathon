@@ -1,7 +1,7 @@
 meta {
-  name: Create Org1
+  name: Nuts - Create Issuer
   type: http
-  seq: 1
+  seq: 3
 }
 
 post {
@@ -22,7 +22,8 @@ script:post-response {
   
   const didWeb = didWebDoc.id
   
-  bru.setVar("didOrg1", didWeb)
+  bru.setVar("didIssuer", didWeb)
   
-  bru.setVar("Org1SubjectId", res.body.subject)
+  
+  bru.setVar("IssuerSubjectId", res.body.subject)
 }

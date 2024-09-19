@@ -1,11 +1,11 @@
 meta {
-  name: FHIR Delete CareTeam
+  name: FHIR - Delete CareTeam
   type: http
   seq: 2
 }
 
 delete {
-  url: http://localhost:8090/fhir/Consent?patient.identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
+  url: http://localhost:8090/fhir/CareTeam?patient.identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
   body: none
   auth: none
 }

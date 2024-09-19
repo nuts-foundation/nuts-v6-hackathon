@@ -67,18 +67,4 @@ async function authz(req) {
   req.return(200);
 }
 
-async function fetchConsent(r) {
-  var opts = {
-    method: "GET",
-  };
-
-  try {
-    var response = await r.subrequest("/_fhir/", opts);
-  } catch (e) {
-    r.error("Failed to fetch consent: " + e);
-    r.return(500);
-    return;
-  }
-}
-
 export default { authz };

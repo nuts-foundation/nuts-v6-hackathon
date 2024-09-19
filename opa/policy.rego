@@ -58,6 +58,7 @@ fetch_careteam(bsn) := ct if {
     }
   })
 
+  print("careteam response", res.body)
   res.status_code == 200
   res.body.total > 0
   ct := [ x | x := res.body.entry[_].resource]
@@ -77,6 +78,7 @@ fetch_consent(bsn) := c if {
       "Content-Type": "application/json"
     }
   })
+  print("consent response", res.body)
   res.status_code == 200
   res.body.total > 0
   c = [ x | x := res.body.entry[_].resource]

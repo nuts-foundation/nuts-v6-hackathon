@@ -1,7 +1,7 @@
 meta {
-  name: Create Issuer
+  name: Nuts - Create Org2
   type: http
-  seq: 3
+  seq: 2
 }
 
 post {
@@ -22,8 +22,14 @@ script:post-response {
   
   const didWeb = didWebDoc.id
   
-  bru.setVar("didIssuer", didWeb)
+  bru.setVar("didOrg2", didWeb)
   
   
-  bru.setVar("IssuerSubjectId", res.body.subject)
+  bru.setVar("Org2SubjectId", res.body.subject)
+  
+  const regex = /did:[\w]{3}:[\w%]+:iam:([\w-]+)/;
+  var didId = didWeb.match(regex)[1];
+  console.log(didId)
+  
+  bru.setVar("Org2DidId", didId)
 }

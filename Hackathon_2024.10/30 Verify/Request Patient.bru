@@ -13,3 +13,8 @@ get {
 params:query {
   identifier: http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
 }
+
+assert {
+  res.status: eq 200
+  res.body.total: gt 0
+}
