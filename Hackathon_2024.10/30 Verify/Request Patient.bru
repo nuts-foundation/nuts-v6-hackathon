@@ -1,7 +1,7 @@
 meta {
   name: Request Patient
   type: http
-  seq: 1
+  seq: 3
 }
 
 get {
@@ -16,5 +16,6 @@ params:query {
 
 assert {
   res.status: eq 200
-  res.body.total: gt 0
+  res.body.total: gte 1
+  res.body.entry: isDefined "entry"
 }

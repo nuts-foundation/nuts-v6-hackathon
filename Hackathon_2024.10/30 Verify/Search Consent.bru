@@ -13,3 +13,8 @@ get {
 params:query {
   patient.identifier: http://fhir.nl/fhir/NamingSystem/bsn|{{bsn}}
 }
+
+assert {
+  res.status: eq 200
+  res.body.entry.length: gte 1
+}
