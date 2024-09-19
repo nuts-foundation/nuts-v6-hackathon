@@ -1,0 +1,25 @@
+meta {
+  name: Create Patient
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:8090/fhir/Patient
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+              "resourceType": "Patient",
+                  "identifier": {
+                      "system": "http://fhir.nl/fhir/NamingSystem/bsn",
+                      "value": "{{bsn}}"
+                  }
+  }
+}
+
+assert {
+  res.status: eq 201
+}

@@ -1,0 +1,11 @@
+{
+  "http_operations": {
+    "GET": "read",
+    "POST": "write",
+    "PUT": "update",
+    "DELETE": "delete"
+  },
+  "resource_rights": {
+    "Patient": ["read"]
+  }
+}

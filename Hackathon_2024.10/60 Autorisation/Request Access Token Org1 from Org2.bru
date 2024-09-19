@@ -1,0 +1,27 @@
+meta {
+  name: Request Access Token Org1 from Org2
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{nuts-internal}}/internal/auth/v2/{{Org1SubjectId}}/request-service-access-token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "authorization_server": "http://localhost:5551/oauth2/{{Org2SubjectId}}",
+    "scope": "hackathon_v2024",
+    "token_type": "Bearer"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  bru.setVar("accessToken", res.body.access_token)
+}

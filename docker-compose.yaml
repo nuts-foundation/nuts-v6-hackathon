@@ -1,0 +1,60 @@
+services:
+  nuts-node1:
+    image: nutsfoundation/nuts-node:6.0.0-beta.11
+    environment:
+      NUTS_CONFIGFILE: /opt/nuts/config/nuts.yaml
+    ports:
+      - 5551:5551
+      - 1323:1323
+    volumes:
+      - "./config/node1:/opt/nuts/config:ro"
+      - "./data/node1:/opt/nuts/data:rw"
+  fhir:
+    image: "hapiproject/hapi:latest"
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./data/hapi:/data/hapi
+      # - ./config/fhir/application.yaml:/data/hapi/application.yaml
+    environment:
+      SPRING_CONFIG_LOCATION: "file:///data/hapi/application.yaml"
+
+  opa:
+    image: openpolicyagent/opa
+    ports:
+      - "8181:8181"
+    platform: linux/amd64
+    command:
+      - "run"
+      - "--server"
+      - "--log-format=json-pretty"
+      - "--log-level=info"
+      - "--set=decision_logs.console=true"
+      - "--set=services.nginx.url=http://bundle_server"
+      - "--set=bundles.nginx.service=nginx"
+      - "--set=bundles.nginx.resource=bundles/bundle.tar.gz"
+    depends_on:
+      - bundle_server
+  pep:
+    image: nginx:alpine
+    ports:
+      - 8081:8080
+    volumes:
+      - ./config/pep/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/pep/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - opa
+      - nuts-node1
+      - resource_server
+  resource_server:
+    image: nginx:alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./config/pep/html:/usr/share/nginx/html
+  bundle_server:
+    image: nginx:alpine
+    ports:
+      - 8888:80
+    volumes:
+      - ./bundles:/usr/share/nginx/html/bundles

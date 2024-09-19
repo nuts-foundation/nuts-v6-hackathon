@@ -1,0 +1,15 @@
+meta {
+  name: Nuts - Revoke URA Org2
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{nuts-internal}}/internal/vcr/v2/issuer/vc/{{Org2VcId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

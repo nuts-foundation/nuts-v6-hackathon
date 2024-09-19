@@ -1,0 +1,15 @@
+meta {
+  name: Nuts - Deactivate Issuer
+  type: http
+  seq: 8
+}
+
+delete {
+  url: {{nuts-internal}}/internal/vdr/v2/subject/{{IssuerSubjectId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}

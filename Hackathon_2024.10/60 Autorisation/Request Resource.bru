@@ -1,0 +1,23 @@
+meta {
+  name: Request Resource
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8081/fhir/Patient?identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
+  body: none
+  auth: none
+}
+
+params:query {
+  identifier: http://fhir.nl/fhir/NamingSystem/bsn|{{bsn}}
+}
+
+headers {
+  Authorization: Bearer {{accessToken}}
+}
+
+assert {
+  res.status: eq 200
+}

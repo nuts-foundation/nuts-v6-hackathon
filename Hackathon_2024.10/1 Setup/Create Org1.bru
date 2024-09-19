@@ -1,0 +1,28 @@
+meta {
+  name: Create Org1
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{nuts-internal}}/internal/vdr/v2/subject
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  const docs = res.body.documents
+  console.log(docs)
+  
+  const didWebDoc = docs[0]
+  
+  const didWeb = didWebDoc.id
+  
+  bru.setVar("didOrg1", didWeb)
+  
+  bru.setVar("Org1SubjectId", res.body.subject)
+}

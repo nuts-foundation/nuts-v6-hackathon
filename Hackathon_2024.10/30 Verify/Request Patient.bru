@@ -1,0 +1,15 @@
+meta {
+  name: Request Patient
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8090/fhir/Patient?identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
+  body: none
+  auth: none
+}
+
+params:query {
+  identifier: http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
+}

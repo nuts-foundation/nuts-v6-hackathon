@@ -1,0 +1,52 @@
+{
+  "hackathon_v2024": {
+    "organization": {
+      "id": "pd_care_organization",
+      "format": {
+        "ldp_vc": {
+          "proof_type": ["JsonWebSignature2020"]
+        },
+        "ldp_vp": {
+          "proof_type": ["JsonWebSignature2020"]
+        }
+      },
+      "input_descriptors": [
+        {
+          "id": "1",
+          "constraints": {
+            "fields": [
+              {
+                "path": ["$.type"],
+                "filter": {
+                  "type": "string",
+                  "const": "NutsUraCredential"
+                }
+              },
+              {
+                "id": "name",
+                "path": ["$.credentialSubject.organization.name"],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "city",
+                "path": ["$.credentialSubject.organization.city"],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "ura",
+                "path": ["$.credentialSubject.organization.ura"],
+                "filter": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

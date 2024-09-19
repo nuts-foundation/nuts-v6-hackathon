@@ -1,0 +1,29 @@
+meta {
+  name: Create Issuer
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{nuts-internal}}/internal/vdr/v2/subject
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  const docs = res.body.documents
+  console.log(docs)
+  
+  const didWebDoc = docs[0]
+  
+  const didWeb = didWebDoc.id
+  
+  bru.setVar("didIssuer", didWeb)
+  
+  
+  bru.setVar("IssuerSubjectId", res.body.subject)
+}

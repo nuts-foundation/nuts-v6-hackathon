@@ -1,0 +1,18 @@
+strictmode: false
+url: http://localhost:5551
+http:
+  public:
+    address: :5551
+  internal:
+    address: :1323
+auth:
+  contractvalidators: [employeeid]
+vdr:
+  didmethods: [web]
+discovery:
+  definitions:
+    directory: "/opt/nuts/config/discovery"
+  server:
+    ids: ["hackathon_v2024"]
+policy:
+  directory: "/opt/nuts/config/policy"

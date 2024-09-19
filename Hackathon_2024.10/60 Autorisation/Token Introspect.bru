@@ -1,0 +1,29 @@
+meta {
+  name: Token Introspect
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{nuts-internal}}/internal/auth/v2/accesstoken/introspect
+  body: formUrlEncoded
+  auth: none
+}
+
+body:json {
+  {
+    "token": "KI4_Cb4D3fpkNOvU_aDp32sUD44tawfKpWmaVsRf7s"
+  }
+}
+
+body:form-urlencoded {
+  token: {{accessToken}}
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  bru.setVar("AtIntrospectResponse", JSON.stringify(res.body))
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Nuts - Deactivate Org2
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{nuts-internal}}/internal/vdr/v2/subject/{{Org2SubjectId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 204
+}
