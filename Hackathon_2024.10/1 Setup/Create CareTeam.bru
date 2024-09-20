@@ -13,13 +13,6 @@ post {
 body:json {
   {
     "resourceType": "CareTeam",
-    "id": "cps-careteam-01",
-    "meta": {
-      "versionId": "1",
-      "profile": [
-        "http://santeonnl.github.io/shared-care-planning/StructureDefinition/SCPCareTeam"
-      ]
-    },
     "category": [
       {
         "coding": [
@@ -60,6 +53,17 @@ body:json {
         "period": {
           "start": "2024-08-27"
         }
+      },
+      {
+        "member": {
+          "identifier": {
+            "system": "$ura",
+            "value": "{{uraOrg2}}"
+          }
+        },
+        "period": {
+          "start": "{{now}}"
+        }
       }
     ]
   }
@@ -69,6 +73,6 @@ assert {
   res.status: eq 201
 }
 
-script:post-response {
-  bru.sleep(2000)
+script:pre-request {
+  bru.setVar("now", new Date().toJSON())
 }

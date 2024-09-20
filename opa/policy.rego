@@ -70,7 +70,7 @@ fetch_consent(bsn) := c if {
 
   res := http.send({
     "method": "get",
-    "url": concat("", ["http://fhir:8080/fhir/Consent?patient.identifier=", system, bsn]),
+    "url": concat("", ["http://fhir:8080/fhir/Consent?patient.identifier=", system, bsn, "&status=active&scope=patient-privacy"]),
     "raise_error": false,
     "force_json_decode": true,
     "headers": {
