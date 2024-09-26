@@ -12,6 +12,7 @@ post {
 
 vars:post-response {
   IssuerDID: res.body.documents[0].id
+  escapedIssuerDID: encodeURIComponent(res.body.documents[0].id)
 }
 
 assert {

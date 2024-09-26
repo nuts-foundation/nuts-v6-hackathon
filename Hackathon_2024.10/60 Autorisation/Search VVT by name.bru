@@ -18,3 +18,8 @@ vars:post-response {
   Org2AuthServerURL: res.body[0].registrationParameters.authServerURL
   Org2FhirURL: res.body[0].registrationParameters.fhir
 }
+
+assert {
+  res.body.length: eq 1
+  res.status: eq 200
+}

@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://localhost:8081/fhir/Patient?identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
+  url: {{Org2FhirURL}}/Patient?identifier=http://fhir.nl/fhir/NamingSystem/bsn%7C{{bsn}}
   body: none
   auth: none
 }
