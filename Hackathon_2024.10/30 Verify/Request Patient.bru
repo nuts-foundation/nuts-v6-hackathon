@@ -18,4 +18,5 @@ assert {
   res.status: eq 200
   res.body.total: gte 1
   res.body.entry: isDefined "entry"
+  res.body.entry[0].resource.identifier[0].value: eq "{{bsn}}"
 }

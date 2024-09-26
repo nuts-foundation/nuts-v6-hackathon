@@ -1,7 +1,7 @@
 meta {
   name: Request Access Token Org1 from Org2
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
@@ -12,16 +12,16 @@ post {
 
 body:json {
   {
-    "authorization_server": "http://localhost:5551/oauth2/{{Org2SubjectId}}",
+    "authorization_server": "{{Org2AuthServerURL}}",
     "scope": "hackathon_v2024",
     "token_type": "Bearer"
   }
 }
 
-assert {
-  res.status: eq 200
+vars:post-response {
+  accessToken: res.body.access_token
 }
 
-script:post-response {
-  bru.setVar("accessToken", res.body.access_token)
+assert {
+  res.status: eq 200
 }

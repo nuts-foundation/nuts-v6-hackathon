@@ -17,4 +17,7 @@ params:query {
 assert {
   res.status: eq 200
   res.body.entry.length: gte 1
+  res.body.entry[0].resource.participant[0].member.identifier.value: eq "{{bsn}}"
+  res.body.entry[0].resource.participant[1].member.identifier.value: eq "{{Org1Ura}}"
+  res.body.entry[0].resource.participant[2].member.identifier.value: eq "{{Org2Ura}}"
 }

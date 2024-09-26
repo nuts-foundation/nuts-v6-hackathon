@@ -1,0 +1,17 @@
+meta {
+  name: Nuts - List discovery services
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{nuts-internal}}/internal/discovery/v1
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 1
+  res.body[0].id: eq "hackathon_v2024"
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Nuts - Store VC Org1
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{nuts-internal}}/internal/vcr/v2/holder/{{Org1DID}}/vc
+  body: json
+  auth: none
+}
+
+body:json {
+  {{Org1VC}}
+}

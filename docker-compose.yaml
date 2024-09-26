@@ -1,6 +1,6 @@
 services:
   nuts-node1:
-    image: nutsfoundation/nuts-node:6.0.0-beta.11
+    image: nutsfoundation/nuts-node:6.0.0-rc.3
     environment:
       NUTS_CONFIGFILE: /opt/nuts/config/nuts.yaml
     ports:

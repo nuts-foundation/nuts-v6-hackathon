@@ -19,4 +19,6 @@ params:query {
 assert {
   res.status: eq 200
   res.body.entry.length: gte 1
+  res.body.entry[0].resource.provision.actor[0].reference.identifier.value: eq "{{Org1Ura}}"
+  res.body.entry[0].resource.provision.actor[1].reference.identifier.value: eq "{{Org2Ura}}"
 }

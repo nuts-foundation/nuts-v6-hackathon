@@ -1,13 +1,23 @@
 meta {
   name: Discovery - Register Org2
   type: http
-  seq: 7
+  seq: 9
 }
 
 post {
   url: {{nuts-internal}}/internal/discovery/v1/hackathon_v2024/{{Org2SubjectId}}
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "registrationParameters":
+      {
+        "fhir": "http://localhost:8090/fhir"
+      }
+    
+  }
 }
 
 assert {

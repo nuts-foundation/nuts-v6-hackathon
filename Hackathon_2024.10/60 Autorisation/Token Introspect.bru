@@ -1,7 +1,7 @@
 meta {
   name: Token Introspect
   type: http
-  seq: 2
+  seq: 3
 }
 
 post {
@@ -20,10 +20,10 @@ body:form-urlencoded {
   token: {{accessToken}}
 }
 
-assert {
-  res.status: eq 200
+vars:post-response {
+  AtIntrospectResponse: JSON.stringify(res.body)
 }
 
-script:post-response {
-  bru.setVar("AtIntrospectResponse", JSON.stringify(res.body))
+assert {
+  res.status: eq 200
 }

@@ -1,15 +1,11 @@
 meta {
-  name: Discovery - Register Org1
+  name: Nuts - Stop Discovery Org1
   type: http
-  seq: 8
+  seq: 4
 }
 
-post {
+delete {
   url: {{nuts-internal}}/internal/discovery/v1/hackathon_v2024/{{Org1SubjectId}}
   body: none
   auth: none
-}
-
-assert {
-  res.status: eq 200
 }

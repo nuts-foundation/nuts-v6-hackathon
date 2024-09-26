@@ -10,25 +10,11 @@ post {
   auth: none
 }
 
-assert {
-  res.status: eq 200
+vars:post-response {
+  Org1DID: res.body.documents[0].id
+  Org1SubjectId: res.body.subject
 }
 
-script:post-response {
-  const docs = res.body.documents;
-  console.log(docs);
-  
-  const didWebDoc = docs[0];
-  
-  var didWeb = didWebDoc.id;
-  
-  bru.setVar("didOrg1", didWeb);
-  
-  bru.setVar("Org1SubjectId", res.body.subject);
-  
-  const regex = /did:[\w]{3}:[\w%]+:iam:([\w-]+)/;
-  var didId = didWeb.match(regex)[1];
-  console.log(didId)
-  
-  bru.setVar("Org1DidId", didId)
+assert {
+  res.status: eq 200
 }

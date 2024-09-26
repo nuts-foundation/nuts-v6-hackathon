@@ -1,0 +1,20 @@
+meta {
+  name: Search VVT by name
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{nuts-internal}}/internal/discovery/v1/hackathon_v2024?credentialSubject.organization.name=VVT*
+  body: none
+  auth: none
+}
+
+params:query {
+  credentialSubject.organization.name: VVT*
+}
+
+vars:post-response {
+  Org2AuthServerURL: res.body[0].registrationParameters.authServerURL
+  Org2FhirURL: res.body[0].registrationParameters.fhir
+}

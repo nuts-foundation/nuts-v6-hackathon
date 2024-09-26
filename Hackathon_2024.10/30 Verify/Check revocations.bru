@@ -1,11 +1,11 @@
 meta {
-  name: Nuts Get IAM Org2
+  name: Check revocations
   type: http
-  seq: 2
+  seq: 7
 }
 
 get {
-  url: {{nuts-public}}/iam/{{Org2DidId}}/did.json
+  url: {{nuts-public}}/statuslist/{{IssuerDID}}/1
   body: none
   auth: none
 }
