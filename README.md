@@ -2,14 +2,14 @@
 
 This repository contains the files for the Nuts version 6 Hackathon.
 It includes a docker-compose which start up a test environment and a set of configured API requests for easy testing.
-The API request can be used with the free [Bruno API client](usebruno.com).
+The API request can be used with the free [Bruno API client](https://www.usebruno.com).
 
 ## Files and folders:
 
 - bundles: contains the compiled rego policy bundle
 - config: contains the configuration files for the several docker containers
 - data: contains the data files for the several docker containers
-- Hackathon_v2024.10 contains a [Bruno API config](usebruno.com) for easy API testing
+- Hackathon_v2024.10 contains a [Bruno API config](https://www.usebruno.com) for easy API testing
 - opa: contains the rego policy files
 
 
