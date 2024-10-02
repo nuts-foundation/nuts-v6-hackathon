@@ -48,6 +48,6 @@ The policy file located in the opa folder must be compiled after changes. This c
 It requires you have the OPA CLI installed.
 
 ```bash
-$ opa build --bundle ./opa --output ./bundles/policy.tar.gz
+$ opa build --bundle ./opa --output ./bundles/bundle.tar.gz
 ```
 
