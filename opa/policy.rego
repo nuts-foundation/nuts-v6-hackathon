@@ -7,9 +7,9 @@ default allow := false
 allow if {
   token_active
 
-	"hackathon_v2024" in scope
+  "hackathon_v2024" in scope
 
-	consent_given
+  consent_given
 
   requestor_part_of_care_team
 }
@@ -23,20 +23,20 @@ scope contains input.introspectionResult.scope
 requestor_ura := input.introspectionResult.ura
 
 token_active if {
-	input.introspectionResult.active
+  input.introspectionResult.active
 }
 
 care_team_uras contains org.member.identifier.value if {
-	some care_team in fetch_careteam(bsn)
-	care_team.resourceType == "CareTeam"
+  some care_team in fetch_careteam(bsn)
+  care_team.resourceType == "CareTeam"
 
-	some org in care_team.participant
-	org.member.identifier.system == "$ura"
+  some org in care_team.participant
+  org.member.identifier.system == "$ura"
 }
 
 consent_uras contains actor.reference.identifier.value if {
-	some consent in fetch_consent(bsn)
-	consent.resourceType == "Consent"
+  some consent in fetch_consent(bsn)
+  consent.resourceType == "Consent"
     
   some actor in consent.provision.actor
   actor.reference.identifier.system == "$ura"
