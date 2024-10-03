@@ -45,6 +45,41 @@
               }
             ]
           }
+        },
+        {
+          "id": "2",
+          "constraints": {
+            "fields": [
+              {
+                "path": ["$.type"],
+                "filter": {
+                  "type": "string",
+                  "const": "EmployeeCredential"
+                }
+              },
+              {
+                "id": "employee_name",
+                "path": ["$.credentialSubject.name"],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "employee_role",
+                "path": ["$.credentialSubject.roleName"],
+                "filter": {
+                  "type": "string"
+                }
+              },
+              {
+                "id": "employee_identifier",
+                "path": ["$.credentialSubject.identifier"],
+                "filter": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
         }
       ]
     }
