@@ -10,11 +10,7 @@ auth:
 vdr:
   didmethods: [web]
 discovery:
-  definitions:
-    directory: "/opt/nuts/config/discovery"
   server:
     ids: ["hackathon_v2024"]
   client:
     refresh_interval: 50s
-policy:
-  directory: "/opt/nuts/config/policy"
