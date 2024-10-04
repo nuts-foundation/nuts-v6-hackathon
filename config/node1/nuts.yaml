@@ -1,5 +1,6 @@
 strictmode: false
 url: http://localhost:5551
+didmethods: [web]
 http:
   public:
     address: :5551
@@ -8,7 +9,7 @@ http:
 auth:
   contractvalidators: [employeeid]
 vdr:
-  didmethods: [web]
+  didmethods: [web] # moved in 6.0.0-rc.6 release to didmethods (root config). left there since it does not impact node startup.
 discovery:
   server:
     ids: ["hackathon_v2024"]

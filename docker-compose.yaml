@@ -1,6 +1,6 @@
 services:
   nuts-node1:
-    image: nutsfoundation/nuts-node:6.0.0-rc.3
+    image: nutsfoundation/nuts-node:6.0.0-rc.6
 #    user: when running on linux, this must be set to the host user if the datadir is mounted ($USER:$USER or $UID:$UID depending on what env variables exist)
     ports:
       - 5551:5551
