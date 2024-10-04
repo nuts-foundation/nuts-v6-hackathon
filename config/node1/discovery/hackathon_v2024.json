@@ -25,6 +25,14 @@
               }
             },
             {
+              "path": ["$.issuer"],
+              "purpose": "We can only accept credentials from a trusted issuer",
+              "filter": {
+                "type": "string",
+                "pattern": "^did:web:localhost%3A5551:iam:[\\w-]{36}$|^did:web:zorgbijjou\\.test\\.integration\\.zorgbijjou\\.com:nuts:iam:[\\w-]{36}$"
+              }
+            },
+            {
               "id": "name",
               "path": ["$.credentialSubject.organization.name"],
               "filter": {
