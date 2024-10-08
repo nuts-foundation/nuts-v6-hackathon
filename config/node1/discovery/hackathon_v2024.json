@@ -1,7 +1,7 @@
 {
   "id": "hackathon_v2024",
   "endpoint": "http://localhost:5551/discovery/hackathon_v2024",
-  "presentation_max_validity": 60,
+  "presentation_max_validity": 250000,
   "presentation_definition": {
     "id": "pd_care_organization",
     "format": {
