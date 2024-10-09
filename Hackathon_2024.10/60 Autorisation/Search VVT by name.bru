@@ -20,6 +20,6 @@ vars:post-response {
 }
 
 assert {
-  res.body.length: gt 1
+  res.body.length: eq 1
   res.status: eq 200
 }
