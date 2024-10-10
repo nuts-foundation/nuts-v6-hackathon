@@ -1,7 +1,7 @@
 meta {
   name: Create CareTeam
   type: http
-  seq: 12
+  seq: 11
 }
 
 post {
@@ -67,6 +67,10 @@ body:json {
       }
     ]
   }
+}
+
+vars:post-response {
+  CareTeamID: res.body.id
 }
 
 assert {

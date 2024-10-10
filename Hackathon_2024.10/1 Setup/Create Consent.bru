@@ -1,7 +1,7 @@
 meta {
   name: Create Consent
   type: http
-  seq: 11
+  seq: 12
 }
 
 post {
@@ -44,32 +44,14 @@ body:json {
           "role": {
             "coding": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                "code": "PRCP"
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction",
+                "code": "AUTM"
               }
             ]
           },
           "reference": {
-            "identifier": {
-              "system": "$ura",
-              "value": "{{Org1Ura}}"
-            }
-          }
-        },
-        {
-          "role": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                "code": "PRCP"
-              }
-            ]
-          },
-          "reference": {
-            "identifier": {
-              "system": "$ura",
-              "value": "{{Org2Ura}}"
-            }
+            "type":"CareTeam",
+            "reference":"CareTeam/{{CareTeamID}}"
           }
         }
       ],
